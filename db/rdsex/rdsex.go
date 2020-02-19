@@ -159,23 +159,21 @@ func (r *RdsServer) Pipe() *redis.Pipeline {
 // 	return r.client.Scan(cursor, match, count).Result()
 // }
 
-func (r *RdsServer) ScanKeys(match string, count int64, f func(key string, value string)) error {
+func (r *RdsServer) ScanKeys(match string, count int64, f func(keys []string)) error {
 	var (
 		err    error
 		cursor uint64 = 0
-		values []string
+		keys   []string
 	)
 
 	for {
-		values, cursor, err = r.client.Scan(cursor, match, count).Result()
+		keys, cursor, err = r.client.Scan(cursor, match, count).Result()
 		if err != nil {
 			break
 		}
 
-		if len(values) > 0 {
-			for i := 0; i < len(values); i = i + 2 {
-				f(values[i], values[i+1])
-			}
+		if len(keys) > 0 {
+			f(keys)
 		}
 
 		if cursor == 0 {
@@ -234,7 +232,7 @@ func (r *RdsServer) HMGet(key string, fields ...string) ([]interface{}, error) {
 // 	return r.client.HScan(key, cursor, match, count).Result()
 // }
 
-func (r *RdsServer) HScanValues(key string, match string, count int64, f func(values []string)) error {
+func (r *RdsServer) HScanValues(key string, match string, count int64, f func(key string, value string)) error {
 	var (
 		err    error
 		cursor uint64 = 0
@@ -247,7 +245,9 @@ func (r *RdsServer) HScanValues(key string, match string, count int64, f func(va
 		}
 
 		if len(values) > 0 {
-			f(values)
+			for i := 0; i < len(values); i = i + 2 {
+				f(values[i], values[i+1])
+			}
 		}
 
 		if cursor == 0 {
