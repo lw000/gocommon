@@ -159,21 +159,23 @@ func (r *RdsServer) Pipe() *redis.Pipeline {
 // 	return r.client.Scan(cursor, match, count).Result()
 // }
 
-func (r *RdsServer) ScanKeys(match string, count int64, f func(keys []string)) error {
+func (r *RdsServer) ScanKeys(match string, count int64, f func(key string, value string)) error {
 	var (
 		err    error
 		cursor uint64 = 0
-		keys   []string
+		values []string
 	)
 
 	for {
-		keys, cursor, err = r.client.Scan(cursor, match, count).Result()
+		values, cursor, err = r.client.Scan(cursor, match, count).Result()
 		if err != nil {
 			break
 		}
 
-		if len(keys) > 0 {
-			f(keys)
+		if len(values) > 0 {
+			for i := 0; i < len(values); i = i + 2 {
+				f(values[i], values[i+1])
+			}
 		}
 
 		if cursor == 0 {
