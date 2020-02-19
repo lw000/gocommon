@@ -20,7 +20,7 @@ func TestNewMemCache(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := NewMemCache(tt.args.size); !reflect.DeepEqual(got, tt.want) {
+			if got := NewLRU(tt.args.size); !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("NewMemCache() = %v, want %v", got, tt.want)
 			}
 		})
@@ -137,29 +137,6 @@ func Test_memCache_Remove(t *testing.T) {
 			}
 			if got := m.Remove(tt.args.key); got != tt.want {
 				t.Errorf("memCache.Remove() = %v, want %v", got, tt.want)
-			}
-		})
-	}
-}
-
-func Test_memCache_Select(t *testing.T) {
-	type fields struct {
-		store gcache.Cache
-	}
-	tests := []struct {
-		name   string
-		fields fields
-		want   map[interface{}]interface{}
-	}{
-		// TODO: Add test cases.
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			m := &memCache{
-				store: tt.fields.store,
-			}
-			if got := m.Select(); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("memCache.Select() = %v, want %v", got, tt.want)
 			}
 		})
 	}

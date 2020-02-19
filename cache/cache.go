@@ -77,7 +77,7 @@ func (m *memCache) Remove(key interface{}) bool {
 
 // RemoveAll ...
 func (m *memCache) RemoveAll() {
-	keys := m.store.Keys()
+	keys := m.store.Keys(true)
 	for _, k := range keys {
 		// t := reflect.TypeOf(k)
 		// switch t.Kind() {
@@ -90,15 +90,15 @@ func (m *memCache) RemoveAll() {
 
 // GetALL ...
 func (m *memCache) GetALL() map[interface{}]interface{} {
-	return m.store.GetALL()
+	return m.store.GetALL(true)
 }
 
 // Keys ...
 func (m *memCache) Keys() []interface{} {
-	return m.store.Keys()
+	return m.store.Keys(true)
 }
 
 // Len ...
 func (m *memCache) Len() int {
-	return m.store.Len()
+	return m.store.Len(true)
 }
