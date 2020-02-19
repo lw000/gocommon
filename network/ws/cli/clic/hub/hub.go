@@ -3,9 +3,8 @@ package hub
 import (
 	"errors"
 	"fmt"
-	"gocommon/network/ws/cli/clic/handler"
-	"gocommon/network/ws/packet"
-	typacket "gocommon/network/ws/packet"
+	"github.com/lw000/gocommon/network/ws/cli/clic/handler"
+	"github.com/lw000/gocommon/network/ws/packet"
 	"sync"
 )
 

@@ -1,7 +1,7 @@
 package test
 
 import (
-	"gocommon/db/mysql"
+	"github.com/lw000/gocommon/db/mysql"
 	"log"
 	"testing"
 )

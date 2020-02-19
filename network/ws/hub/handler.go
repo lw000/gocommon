@@ -2,7 +2,7 @@ package tyhub
 
 import (
 	"github.com/gorilla/websocket"
-	"gocommon/network/ws/packet"
+	"github.com/lw000/gocommon/network/ws/packet"
 )
 
 type receiverFunc func(conn *websocket.Conn, pk *typacket.Packet)

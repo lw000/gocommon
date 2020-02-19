@@ -2,7 +2,7 @@ package tyschedule
 
 import (
 	"errors"
-	"gocommon/utils"
+	"github.com/lw000/gocommon/utils"
 	"time"
 
 	"github.com/ouqiang/timewheel"

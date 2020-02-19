@@ -1,7 +1,7 @@
 package ipfiltering
 
 import (
-	"gocommon/ip2region"
+	"github.com/lw000/gocommon/ip2region"
 	"reflect"
 	"testing"
 )

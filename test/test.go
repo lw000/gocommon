@@ -1,14 +1,14 @@
 package test
 
 import (
-	"gocommon/auth/tyaes"
-	"gocommon/auth/tybase64"
-	"gocommon/auth/tydes"
-	"gocommon/auth/tymd5"
-	"gocommon/auth/tyrc4"
-	"gocommon/auth/tysha"
-	tymail "gocommon/mail"
-	tyutils "gocommon/utils"
+	"github.com/lw000/gocommon/auth/tyaes"
+	"github.com/lw000/gocommon/auth/tybase64"
+	"github.com/lw000/gocommon/auth/tydes"
+	"github.com/lw000/gocommon/auth/tymd5"
+	"github.com/lw000/gocommon/auth/tyrc4"
+	"github.com/lw000/gocommon/auth/tysha"
+	"github.com/lw000/gocommon/mail"
+	"github.com/lw000/gocommon/utils"
 	"log"
 	"time"
 

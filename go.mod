@@ -1,4 +1,4 @@
-module gocommon
+module github.com/lw000/gocommon
 
 go 1.13
 

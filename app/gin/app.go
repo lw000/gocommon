@@ -6,7 +6,7 @@ import (
 	log "github.com/sirupsen/logrus"
 	// "net/http/pprof"
 	"github.com/DeanThompson/ginpprof"
-	"gocommon/utils"
+	"github.com/lw000/gocommon/utils"
 )
 
 type WebApplication struct {

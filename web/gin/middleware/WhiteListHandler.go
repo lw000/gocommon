@@ -2,8 +2,8 @@ package tymiddleware
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/lw000/gocommon/web/whitelist"
 	log "github.com/sirupsen/logrus"
-	tywhitelist "gocommon/web/whitelist"
 	"net/http"
 )
 

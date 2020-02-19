@@ -5,7 +5,7 @@ import (
 	"crypto/cipher"
 	"encoding/hex"
 	"errors"
-	tyauth "gocommon/auth"
+	"github.com/lw000/gocommon/auth"
 )
 
 type AesUtil struct {

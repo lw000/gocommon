@@ -2,8 +2,8 @@ package tymiddleware
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/lw000/gocommon/web/regionFiltering"
 	log "github.com/sirupsen/logrus"
-	"gocommon/web/regionFiltering"
 	"net/http"
 )
 

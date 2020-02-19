@@ -4,7 +4,7 @@ import (
 	"crypto/des"
 	"encoding/hex"
 	"errors"
-	tyauth "gocommon/auth"
+	"github.com/lw000/gocommon/auth"
 )
 
 type DesUtil struct {

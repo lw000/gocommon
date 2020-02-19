@@ -1,7 +1,7 @@
 package test
 
 import (
-	tyutils "gocommon/utils"
+	"github.com/lw000/gocommon/utils"
 	"log"
 	"testing"
 )

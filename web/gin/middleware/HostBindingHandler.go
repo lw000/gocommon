@@ -2,8 +2,8 @@ package tymiddleware
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/lw000/gocommon/web/hostBinding"
 	log "github.com/sirupsen/logrus"
-	"levi/gocommon/web/hostBinding"
 	"net/http"
 )
 

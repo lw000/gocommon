@@ -3,7 +3,7 @@ package tyhub
 import (
 	"errors"
 	"github.com/gorilla/websocket"
-	"gocommon/network/ws/packet"
+	"github.com/lw000/gocommon/network/ws/packet"
 	"sync"
 )
 

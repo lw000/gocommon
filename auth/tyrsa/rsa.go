@@ -9,7 +9,7 @@ import (
 	"encoding/base64"
 	"encoding/pem"
 	"errors"
-	tyutils "gocommon/utils"
+	"github.com/lw000/gocommon/utils"
 )
 
 /*

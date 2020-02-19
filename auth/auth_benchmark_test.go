@@ -1,11 +1,11 @@
 package tyauth
 
 import (
-	"gocommon/auth/tybase64"
-	"gocommon/auth/tymd5"
-	"gocommon/auth/tysha"
-	"gocommon/utils"
+	"github.com/lw000/gocommon/auth/tybase64"
+	"github.com/lw000/gocommon/auth/tymd5"
+	"github.com/lw000/gocommon/auth/tysha"
 	"testing"
+	"v/utils"
 )
 
 func BenchmarkHex(b *testing.B) {

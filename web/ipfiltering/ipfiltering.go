@@ -2,8 +2,8 @@ package ipfiltering
 
 import (
 	"errors"
+	"github.com/lw000/gocommon/ip2region"
 	log "github.com/sirupsen/logrus"
-	tyip2region "gocommon/ip2region"
 	"strings"
 )
 

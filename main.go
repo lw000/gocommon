@@ -1,7 +1,7 @@
 package main
 
 import (
-	"gocommon/test"
+	"github.com/lw000/gocommon/test"
 
 	log "github.com/alecthomas/log4go"
 )

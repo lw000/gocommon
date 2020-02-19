@@ -2,8 +2,8 @@ package test
 
 import (
 	"fmt"
-	"gocommon/db/rdsex"
-	"gocommon/utils"
+	"github.com/lw000/gocommon/db/rdsex"
+	"github.com/lw000/gocommon/utils"
 	"log"
 	"testing"
 	"time"

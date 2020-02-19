@@ -2,7 +2,7 @@ package tymiddleware
 
 import (
 	"github.com/gin-gonic/gin"
-	tylimiter "gocommon/web/limiter"
+	"github.com/lw000/gocommon/web/limiter"
 	"net/http"
 )
 
