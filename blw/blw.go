@@ -23,13 +23,12 @@ func (co *CoroutinePool) Start(size int) error {
 	return nil
 }
 
-func (co *CoroutinePool) Tune(size int) {
+func (co *CoroutinePool) Tune(size uint) {
 	co.pool.Tune(size)
 }
 
 func (co *CoroutinePool) Close() {
-	if err := co.pool.Release(); err != nil {
-	}
+	co.pool.Release()
 }
 
 func (co *CoroutinePool) Submit(task func()) {
