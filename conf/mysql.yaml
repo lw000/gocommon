@@ -1,0 +1,8 @@
+#数据库配置
+username: root
+password: lwstar
+host: 127.0.0.1:3306
+port: 3306
+database: lw
+maxOpenConns: 20
+maxOdleConns: 5

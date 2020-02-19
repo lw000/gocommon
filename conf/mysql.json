@@ -1,0 +1,8 @@
+{
+	"username": "root",
+	"password": "Aabbcc123!@#",
+	"host": "47.96.230.81:3306",
+	"database": "mservice",
+	"MaxOpenConns": 20,
+	"MaxOdleConns": 5
+}
