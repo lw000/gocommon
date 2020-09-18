@@ -15,7 +15,7 @@ type Packet struct {
 	data     []byte
 }
 
-func New(mainCmd, subCmd uint16, clientId uint32) *Packet {
+func NewPacket(mainCmd, subCmd uint16, clientId uint32) *Packet {
 	pk := &Packet{
 		version:  1,
 		mainCmd:  mainCmd,

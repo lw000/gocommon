@@ -13,6 +13,10 @@ type Server struct {
 	cancelFunc context.CancelFunc
 }
 
+func NewServer() *Server {
+	return &Server{}
+}
+
 func handleClient(ctx context.Context, conn net.Conn) {
 	defer func() {
 		err := conn.Close()

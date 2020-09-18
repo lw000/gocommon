@@ -8,11 +8,15 @@ import (
 type Client struct {
 	conn      net.Conn
 	connected bool
-	done      chan struct{}
+	quit      chan struct{}
 	onMessage func(data []byte) error
 }
 
-func (c *Client) SetOnMessage(onMessage func(data []byte) error) {
+func NewClient() *Client {
+	return &Client{}
+}
+
+func (c *Client) OnMessage(onMessage func(data []byte) error) {
 	c.onMessage = onMessage
 }
 
@@ -20,9 +24,9 @@ func (c *Client) Connected() bool {
 	return c.connected
 }
 
-func (c *Client) Open(address string) error {
+func (c *Client) Open(host string, port string) error {
 	var err error
-	c.conn, err = net.Dial("tcp", "127.0.0.1:7777")
+	c.conn, err = net.Dial("tcp", net.JoinHostPort(host, port))
 
 	checkError(err)
 
@@ -34,9 +38,7 @@ func (c *Client) Open(address string) error {
 }
 
 func (c *Client) Send(data []byte) error {
-	var n int
-	var err error
-	n, err = c.conn.Write([]byte("Hello!"))
+	n, err := c.conn.Write(data)
 	if err != nil {
 		log.Error("connected closed")
 	}
@@ -49,13 +51,14 @@ func (c *Client) Send(data []byte) error {
 }
 
 func (c *Client) run() {
-	var n int
-	var err error
+	var (
+		n   int
+		err error
+	)
 	buf := make([]byte, 1024)
 	for {
 		n, err = c.conn.Read(buf)
 		if err != nil {
-			log.Error("connected closed")
 			break
 		}
 
@@ -66,8 +69,6 @@ func (c *Client) run() {
 		if c.onMessage != nil {
 			err = c.onMessage(buf[0:n])
 		}
-
-		log.Printf("read:%s\n", string(buf[0:n]))
 	}
 }
 
