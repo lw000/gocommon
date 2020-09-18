@@ -12,14 +12,15 @@ func TestNewAes(t *testing.T) {
 	tests := []struct {
 		name string
 		args args
-		want *AesStruct
+		want *AesUtil
 	}{
 		// TODO: Add test cases.
 	}
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := NewAes(tt.args.key); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("NewAes() = %v, want %v", got, tt.want)
+			if got := New(tt.args.key); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("TestNewAes() = %v, want %v", got, tt.want)
 			}
 		})
 	}
@@ -42,9 +43,10 @@ func TestAesStruct_cbcEncrypt(t *testing.T) {
 	}{
 		// TODO: Add test cases.
 	}
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			a := AesStruct{
+			a := AesUtil{
 				key: tt.fields.key,
 			}
 			got, err := a.cbcEncrypt(tt.args.data, tt.args.fillMode)
@@ -78,7 +80,7 @@ func TestAesStruct_cbcDecrypt(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			a := AesStruct{
+			a := AesUtil{
 				key: tt.fields.key,
 			}
 			got, err := a.cbcDecrypt(tt.args.data, tt.args.fillMode)
@@ -88,60 +90,6 @@ func TestAesStruct_cbcDecrypt(t *testing.T) {
 			}
 			if !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("AesStruct.cbcDecrypt() = %v, want %v", got, tt.want)
-			}
-		})
-	}
-}
-
-func TestAesEncrypt(t *testing.T) {
-	type args struct {
-		key  []byte
-		data []byte
-	}
-	tests := []struct {
-		name    string
-		args    args
-		want    string
-		wantErr bool
-	}{
-		// TODO: Add test cases.
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			got, err := AesEncrypt(tt.args.key, tt.args.data)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("AesEncrypt() error = %v, wantErr %v", err, tt.wantErr)
-				return
-			}
-			if got != tt.want {
-				t.Errorf("AesEncrypt() = %v, want %v", got, tt.want)
-			}
-		})
-	}
-}
-
-func TestAesDecrypt(t *testing.T) {
-	type args struct {
-		key []byte
-		str string
-	}
-	tests := []struct {
-		name    string
-		args    args
-		want    []byte
-		wantErr bool
-	}{
-		// TODO: Add test cases.
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			got, err := AesDecrypt(tt.args.key, tt.args.str)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("AesDecrypt() error = %v, wantErr %v", err, tt.wantErr)
-				return
-			}
-			if !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("AesDecrypt() = %v, want %v", got, tt.want)
 			}
 		})
 	}
