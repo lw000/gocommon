@@ -22,6 +22,7 @@ require (
 	github.com/mattn/go-sqlite3 v2.0.3+incompatible
 	github.com/ouqiang/timewheel v1.0.1
 	github.com/panjf2000/ants v1.3.0
+	github.com/panjf2000/ants/v2 v2.4.2 // indirect
 	github.com/patrickmn/go-cache v2.1.0+incompatible
 	github.com/satori/go.uuid v1.2.0
 	github.com/sirupsen/logrus v1.4.2
