@@ -19,9 +19,11 @@ func NewServer() *Server {
 
 func handleClient(ctx context.Context, conn net.Conn) {
 	defer func() {
+		if x := recover(); x != nil {
+			log.Println("recover error:", x)
+		}
 		err := conn.Close()
 		if err != nil {
-
 		}
 	}()
 
